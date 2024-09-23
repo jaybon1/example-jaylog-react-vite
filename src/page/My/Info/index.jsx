@@ -6,6 +6,7 @@ import usePendingFunction from "/src/use/usePendingFunction.jsx";
 import UserInfoLayout from "/src/page/_component/layout/UserInfoLayout/index.jsx";
 import Custom from "/src/util/Custom.js";
 import UtilFunctions from "/src/util/UtilFunctions.js";
+import MyInfoExplain from "/src/page/My/Info/_component/MyInfoExplain/index.jsx";
 
 export default function MyInfoPage() {
 
@@ -130,10 +131,6 @@ export default function MyInfoPage() {
     });
 
     useEffect(() => {
-        console.log("croppedBlob changed");
-    }, [croppedBlob]);
-
-    useEffect(() => {
         if (authStore.loginUser == null) {
             alert("로그인이 필요합니다.");
             navigate("/auth/login", {replace: true});
@@ -233,8 +230,11 @@ export default function MyInfoPage() {
                         </Col>
                     </Row>
                     <hr/>
-                    <div style={{fontSize : "12px"}}>이미지 파일 용량 관련(base64이미지)로</div>
-                    <div style={{fontSize : "12px"}}>프로필 업로드 시 32 * 32 로 잘려서 출력됩니다.</div>
+                    <MyInfoExplain />
+                    {/*<div style={{fontSize: "12px"}}>*/}
+                    {/*    <div>이미지 파일 용량 관련(base64이미지)로</div>*/}
+                    {/*    <div>프로필 업로드 시 32 * 32 로 잘려서 출력됩니다.</div>*/}
+                    {/*</div>*/}
                 </Card.Body>
             </Card>
         </UserInfoLayout>
