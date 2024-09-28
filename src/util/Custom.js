@@ -1,17 +1,15 @@
-import UtilFunctions from "/src/util/UtilFunctions.js";
+import UtilFunction from "/src/util/UtilFunction.js";
 
 class Custom {
+
     static baseUrl = "https://jaylogapi.jaybon.org";
 
     static async fetch(url, options = {}) {
-        const {url: newUrl, options: newOptions} = UtilFunctions.attachAuthorizationHeader(url, options);
-        const response = await window.fetch(newUrl, newOptions);
-        return await UtilFunctions.handleCustomFetchResponse(response, url, options);
+        const customUrl = `${this.baseUrl}${url}`;
+        const customOptions = UtilFunction.attachAuthorizationHeader(options);
+        const response = await window.fetch(customUrl, customOptions);
+        return await UtilFunction.handleCustomFetchResponse(response, customUrl, customOptions);
     }
-
-
-
-
 
 }
 

@@ -1,7 +1,7 @@
-import {createContext, useContext, useMemo} from "react";
+import {createContext, useContext} from "react";
 import PropTypes from "prop-types";
-import AuthStore from "/src/store/AuthStore.jsx";
-import SearchStore from "/src/store/SearchStore.jsx";
+import useAuthStoreLocal from "/src/store/useAuthStoreLocal.jsx";
+import useSearchStoreLocal from "/src/store/useSearchStoreLocal.jsx";
 
 const StoreContext = createContext(null);
 
@@ -14,8 +14,8 @@ export function StoreProvider({children}) {
     return (
         <StoreContext.Provider
             value={{
-                authStore : new AuthStore(),
-                searchStore : new SearchStore()
+                authStore: useAuthStoreLocal(),
+                searchStore: useSearchStoreLocal()
             }}
         >
             {children}
@@ -24,10 +24,10 @@ export function StoreProvider({children}) {
 
 }
 
-export function useAuthStore(){
+export function useAuthStoreGlobal() {
     return useContext(StoreContext).authStore;
 }
 
-export function useSearchStore(){
+export function useSearchStoreGlobal() {
     return useContext(StoreContext).searchStore;
 }
