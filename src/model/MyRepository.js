@@ -12,7 +12,7 @@ class MyRepository {
         });
     }
 
-    static async postInfo(formData) {
+    static async putInfo(formData) {
         return await Custom.fetch(`${this.url}/info`, {
             method: "PUT",
             headers: {},

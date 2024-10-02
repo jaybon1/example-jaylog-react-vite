@@ -10,8 +10,8 @@ function useMyInfoViewModelLocal() {
 
     const navigate = useNavigate();
 
-    const [postMyInfo, isPendingPostMyInfo] = usePendingFunction(async (props) => {
-        const response = await MyRepository.postInfo(props.formData);
+    const [putInfo, isPendingPutInfo] = usePendingFunction(async (props) => {
+        const response = await MyRepository.putInfo(props.formData);
         if (response?.status === 200) {
             alert("정보를 수정하여 재로그인이 필요합니다. 로그인페이지로 이동합니다.");
             localStorage.removeItem("accessJwt");
@@ -24,8 +24,8 @@ function useMyInfoViewModelLocal() {
     });
 
     return {
-        postMyInfo,
-        isPendingPostMyInfo
+        putInfo,
+        isPendingPutInfo
     };
 }
 

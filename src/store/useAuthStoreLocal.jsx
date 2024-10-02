@@ -9,7 +9,7 @@ function useAuthStoreLocal() {
      * @property {string} name
      * @property {string} simpleDescription
      * @property {string} profileImage
-     * @property {string} roleList
+     * @property {Array} roleList
      */
     const [loginUser, setLoginUser] = useState(undefined);
 

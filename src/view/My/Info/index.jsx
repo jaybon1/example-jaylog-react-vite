@@ -10,7 +10,7 @@ export default function MyInfoPage() {
 
     const {loginUser} = useAuthStoreGlobal();
 
-    const {postMyInfo, isPendingPostMyInfo} = useMyInfoViewModelLocal();
+    const {putInfo, isPendingPutInfo} = useMyInfoViewModelLocal();
 
     const refs = useRef({
         profileImageElement: null,
@@ -110,7 +110,7 @@ export default function MyInfoPage() {
             formData.append("simpleDescription", refs.current.simpleDescElement.value);
         }
 
-        await postMyInfo({formData});
+        await putInfo({formData});
     }
 
     useEffect(() => {
@@ -206,7 +206,7 @@ export default function MyInfoPage() {
                                 type="button"
                                 style={{width: "100%"}}
                                 onClick={requestChangeInfo}
-                                disabled={isPendingPostMyInfo}
+                                disabled={isPendingPutInfo}
                             >
                                 수정하기
                             </Button>
