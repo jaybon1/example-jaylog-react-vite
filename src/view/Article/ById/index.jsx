@@ -81,7 +81,7 @@ export default function ArticleByIdPage() {
                                     variant="outline-success"
                                     type="button"
                                     onClick={() => {
-                                        navigate(`/article/edit/${id}`);
+                                        navigate(`/article/${id}/edit`);
                                     }}
                                 >
                                     수정

@@ -27,7 +27,7 @@ function App() {
                 <Route path="/auth/login" element={<AuthLoginPage/>}/>
                 <Route path="/article/:id" element={<ArticleByIdPage/>}/>
                 <Route path="/article/write" element={<ArticleWritePage/>}/>
-                <Route path="/article/edit/:id" element={<ArticleEditPage/>}/>
+                <Route path="/article/:id/edit" element={<ArticleEditPage/>}/>
                 <Route path="/my" element={<MyPage/>}/>
                 <Route path="/my/info" element={<MyInfoPage/>}/>
                 <Route path="*" element={<Error404Page/>}/>
